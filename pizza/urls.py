@@ -5,6 +5,7 @@ from django.urls.conf import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('authentication.urls')),
-    # path('',include('orders.urls'))
+    path('auth/',include('authentication.urls')),
+    path('orders/',include('order.urls')),
+    path('auth/', include('djoser.urls.jwt')),
 ]

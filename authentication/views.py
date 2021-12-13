@@ -8,11 +8,14 @@ class HelloView(generics.GenericAPIView):
     def get(self,request):
         return Response(data={'msg':'hello auth !'},status = status.HTTP_200_OK)
 
-
+# signup
 class UserCreationView(generics.GenericAPIView):
     serializer_class = serializers.UserCreationSerializer
     def post(self,request):
         data = request.data
-        serializer = self.serializer_class(data = data)
+        print(data)
+        serializer = self.serializer_class(data = data)     
         if serializer.is_valid():
             serializer.save()
+            return Response(data = serializer.data,status= status.HTTP_201_CREATED)
+        return Response(data =  serializer.data,status = status.HTTP_400_BAD_REQUEST)

@@ -22,7 +22,7 @@ class UserCreationSerializer(serializers.ModelSerializer):
         if email_exists:
             raise serializers.ValidationError(detail='User with email exists.')
 
-        phonenumber_exists =User.objects.filter(username = attrs['phonenumber']).exists()
+        phonenumber_exists =User.objects.filter(username = attrs['phone_number']).exists()
         if phonenumber_exists:
             raise serializers.ValidationError(detail='User with phonenumber exists.')
 

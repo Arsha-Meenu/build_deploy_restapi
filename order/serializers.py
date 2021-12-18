@@ -1,7 +1,6 @@
 from django.db.models import fields
 from .models import Order
 from rest_framework import serializers
-
 from order import models
 
 
